@@ -4,9 +4,11 @@ import com.example.cliapplication.consumers.CustomConsumer;
 import com.example.cliapplication.consumers.Mostrador;
 import com.example.cliapplication.entidades.Usuario;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 public class CliApplication {
     public static void main(String[] args) {
@@ -55,15 +57,35 @@ public class CliApplication {
         // Lambda gera uma classe dinamicamente
         // sem gerar um .class no diretorio, para representa-lo
 
-        Runnable o = () -> {
-            System.out.println("Sou lambda?");
-        };
-
-        System.out.println(o);
-        System.out.println(o.getClass());
-        final int i = 0;
-        list.forEach(u -> System.out.println(i));
+//        Runnable o = () -> {
+//            System.out.println("Sou lambda?");
+//        };
+//
+//        System.out.println(o);
+//        System.out.println(o.getClass());
+//        final int i = 0;
+//        list.forEach(u -> System.out.println(i));
 
         //i = 10; // nao pode ser alterado se estiver dentro de um lambda
+
+        // a interface funcional Consumer
+        // possui um metodo default, que compoe
+        // a intacia da mesma, usada sequncialmente
+
+//        Consumer<Usuario> msg = u -> System.out.println("Mensagem");
+//        Consumer<Usuario> nome = u -> System.out.println(u.getNome());
+//        list.forEach(msg.andThen(nome));
+
+        // predicate
+
+        List<Usuario> usuariosList = new ArrayList<>();
+        usuariosList.add(u1);
+        usuariosList.add(u2);
+        usuariosList.add(u3);
+
+        Predicate<Usuario> predicado = u -> u.getPontos() >= 301;
+
+        usuariosList.removeIf(predicado);
+        usuariosList.forEach(u -> System.out.println(u.getNome()));
     }
 }
