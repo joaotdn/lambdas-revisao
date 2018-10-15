@@ -13,6 +13,12 @@ public class Usuario {
         this.moderator = false;
     }
 
+    public Usuario() {
+
+    }
+
+    public Usuario(String nome) {}
+
     public String getNome() {
         return nome;
     }
@@ -35,5 +41,13 @@ public class Usuario {
 
     public void setModerator(boolean moderator) {
         this.moderator = moderator;
+    }
+
+    public void tornarModerador() {
+        this.moderator = true;
+    }
+
+    public String toString() {
+        return nome;
     }
 }

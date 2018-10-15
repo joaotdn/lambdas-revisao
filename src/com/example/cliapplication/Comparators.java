@@ -6,6 +6,7 @@ import com.example.cliapplication.servicos.UsuarioServico;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.ToIntFunction;
 
 import static java.util.Comparator.comparing;
 
@@ -40,11 +41,21 @@ public class Comparators {
 //        usuarios.forEach(u -> System.out.println(u.getNome()));
 
         List<String> list = Arrays.asList("Joao", "Zelia", "Carlos", "Maria", "José");
-        list.sort(Comparator.naturalOrder());
-        list.forEach(System.out::println);
-        System.out.println("-----------------");
-        list.sort(Comparator.reverseOrder());
-        list.forEach(System.out::println);
+//        list.sort(Comparator.naturalOrder());
+//        list.forEach(System.out::println);
+//        System.out.println("-----------------");
+//        list.sort(Comparator.reverseOrder());
+//        list.forEach(System.out::println);
+
+//        evitando autoboxing utilizando interfaces equivalentes ao tipo
+//        versao verbosa
+//        ToIntFunction<Usuario> extraiPontos = u -> u.getPontos();
+//        Comparator<Usuario> comparator = Comparator.comparingInt(extraiPontos);
+//        usuarios.sort(comparator);
+//        versao enxuta usando method reference
+        usuarios.sort(Comparator.comparingInt(Usuario::getPontos));
+        usuarios.forEach(u -> System.out.println(u.getPontos()));
+
 
     }
 

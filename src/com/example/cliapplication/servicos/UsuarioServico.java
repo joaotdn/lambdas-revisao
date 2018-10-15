@@ -3,12 +3,11 @@ package com.example.cliapplication.servicos;
 import com.example.cliapplication.entidades.Usuario;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class UsuarioServico {
 
-    public List<Usuario> listUsuarios() {
+    public static List<Usuario> listUsuarios() {
         Usuario u1 = new Usuario("joao teodoro", 130);
         Usuario u2 = new Usuario("maria jose", 300);
         Usuario u3 = new Usuario("mario world", 304);
